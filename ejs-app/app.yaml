@@ -1,10 +1,19 @@
-runtime: nodejs20
+# runtime: nodejs20
+# env: standard
+
+# handlers:
+#   - url: /.*
+#     script: auto
+
+# automatic_scaling:
+#   min_instances: 1  # Minimum instances
+#   max_instances: 10  # Maximum instances, set this to your desired number
+
+runtime: nodejs16
 env: standard
 
-handlers:
-  - url: /.*
-    script: auto
-    
+entrypoint: node app.js
+
 automatic_scaling:
-  min_instances: 1  # Minimum instances
-  max_instances: 10  # Maximum instances, set this to your desired number
+  min_instances: 1
+  max_instances: 10
