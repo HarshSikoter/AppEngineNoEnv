@@ -9,7 +9,7 @@
 #   min_instances: 1  # Minimum instances
 #   max_instances: 10  # Maximum instances, set this to your desired number
 
-runtime: nodejs16
+runtime: nodejs20
 env: standard
 
 entrypoint: node app.js
