@@ -14,16 +14,31 @@
 # # Timeout for the build process (optional, default is 10 minutes)
 # # timeout: '900s'
 
+# steps:
+#   # Step 1: Install dependencies
+#   - name: 'gcr.io/cloud-builders/npm'
+#     args: ['install']
+#     dir: 'ejs-app'  # <-- your actual folder
+
+#   # Step 2: Deploy to Google App Engine
+#   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#     args: ['gcloud', 'app', 'deploy', 'app.yaml']
+#     dir: 'ejs-app'  # <-- same folder
+
+# options:
+#   logging: CLOUD_LOGGING_ONLY
+
+
 steps:
   # Step 1: Install dependencies
   - name: 'gcr.io/cloud-builders/npm'
     args: ['install']
-    dir: 'ejs-app'  # <-- your actual folder
+    dir: 'ejs-app'  # Ensure npm is run in the ejs-app directory
 
   # Step 2: Deploy to Google App Engine
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    args: ['gcloud', 'app', 'deploy', 'app.yaml']
-    dir: 'ejs-app'  # <-- same folder
+    args: ['gcloud', 'app', 'deploy', 'ejs-app/app.yaml']
+    dir: '.'  # Run the deployment from the root directory
 
 options:
-  logging: CLOUD_LOGGING_ONLY
+  logging: CLOUD_LOGGING_ONLY  # Ensures logs are sent to Cloud Logging
