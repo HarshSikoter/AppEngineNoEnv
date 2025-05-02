@@ -1,0 +1,10 @@
+runtime: nodejs20
+env: standard
+
+handlers:
+  - url: /.*
+    script: auto
+    
+automatic_scaling:
+  min_instances: 1  # Minimum instances
+  max_instances: 10  # Maximum instances, set this to your desired number
