@@ -12,6 +12,12 @@
 runtime: nodejs20
 env: standard
 
+
+handlers:
+  - url: /.*
+    script: auto
+
+
 entrypoint: node app.js
 
 automatic_scaling:
