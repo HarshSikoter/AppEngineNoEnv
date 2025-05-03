@@ -1,3 +1,5 @@
+
+
 steps:
   # Step 1: Install NPM dependencies
   - name: 'gcr.io/cloud-builders/npm'
@@ -9,3 +11,6 @@ steps:
     dir: 'ejs-app'
     entrypoint: 'bash'
     args: ['-c', 'gcloud app deploy app.yaml --quiet']
+
+options:
+  logging: CLOUD_LOGGING_ONLY  # Ensures logs are sent to Cloud Logging
